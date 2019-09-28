@@ -1,0 +1,66 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-grades-heading">Create or edit a Grades</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_aNumber">A Number</label>
+                    <input type="number" class="form-control" name="aNumber" id="field_aNumber"
+                           formControlName="aNumber"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_bNumber">B Number</label>
+                    <input type="number" class="form-control" name="bNumber" id="field_bNumber"
+                           formControlName="bNumber"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_cNumber">C Number</label>
+                    <input type="number" class="form-control" name="cNumber" id="field_cNumber"
+                           formControlName="cNumber"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_dNumber">D Number</label>
+                    <input type="number" class="form-control" name="dNumber" id="field_dNumber"
+                           formControlName="dNumber"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_fNumber">F Number</label>
+                    <input type="number" class="form-control" name="fNumber" id="field_fNumber"
+                           formControlName="fNumber"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_wNumber">W Number</label>
+                    <input type="number" class="form-control" name="wNumber" id="field_wNumber"
+                           formControlName="wNumber"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_studentNumber">Student Number</label>
+                    <input type="number" class="form-control" name="studentNumber" id="field_studentNumber"
+                           formControlName="studentNumber"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_section">Section</label>
+                    <select class="form-control" id="field_section" name="section" formControlName="section">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="sectionOption.id === editForm.get('section').value?.id ? editForm.get('section').value : sectionOption" *ngFor="let sectionOption of sections; trackBy: trackSectionById">{{sectionOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

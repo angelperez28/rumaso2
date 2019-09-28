@@ -1,0 +1,52 @@
+{
+    "name": "Grades",
+    "fields": [
+        {
+            "fieldName": "aNumber",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "bNumber",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "cNumber",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "dNumber",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "fNumber",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "wNumber",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "studentNumber",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "section",
+            "otherEntityRelationshipName": "grades",
+            "relationshipName": "section",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20190928042009",
+    "entityTableName": "grades",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

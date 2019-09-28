@@ -1,0 +1,32 @@
+{
+    "name": "Professor",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "department",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "section",
+            "otherEntityRelationshipName": "professor",
+            "relationshipName": "section",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20190928042008",
+    "javadoc": "not an ignored comment",
+    "entityTableName": "professor",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

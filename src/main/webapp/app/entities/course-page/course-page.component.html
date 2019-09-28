@@ -1,0 +1,63 @@
+<div>
+    <h2 id="page-heading">
+        <span>Course Pages</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-course-page" [routerLink]="['/course-page/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create a new Course Page
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="coursePages?.length === 0">
+        <span>No coursePages found</span>
+    </div>
+    <div class="table-responsive" *ngIf="coursePages?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Rating</span></th>
+            <th><span>Section</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let coursePage of coursePages ;trackBy: trackId">
+                <td><a [routerLink]="['/course-page', coursePage.id, 'view' ]">{{coursePage.id}}</a></td>
+                <td>{{coursePage.rating}}</td>
+                <td>
+                    <span *ngFor="let section of coursePage.sections; let last = last">
+                            <a class="form-control-static" [routerLink]="['/section', section?.id, 'view' ]">{{section.id}}</a>{{last ? '' : ', '}}
+                        </span>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/course-page', coursePage.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/course-page', coursePage.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/course-page', { outlets: { popup: coursePage.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

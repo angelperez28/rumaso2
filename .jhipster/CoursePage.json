@@ -1,0 +1,28 @@
+{
+    "name": "CoursePage",
+    "fields": [
+        {
+            "fieldName": "rating",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "section",
+            "otherEntityRelationshipName": "coursePage",
+            "relationshipName": "section",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20190928042007",
+    "entityTableName": "course_page",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
