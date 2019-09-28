@@ -12,6 +12,10 @@
                    > You are logged in as user "{{account.login}}". </span>
             </div>
             <div class="alert alert-warning" *ngSwitchCase="false">
+                <span>Have an account? </span>
+                <a class="alert-link" (click)="login()">Sign In</a>
+            </div>
+            <div class="alert alert-warning" *ngSwitchCase="false">
                 <span>You don't have an account yet?</span>&nbsp;
                 <a class="alert-link" routerLink="account/register">Register a new account</a>
             </div>
